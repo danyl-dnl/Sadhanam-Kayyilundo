@@ -54,15 +54,20 @@ export default function Home() {
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-300">MEC Marketplace</span>
               </motion.div>
               
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-[1.1]"
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="relative w-full max-w-2xl mx-auto h-[300px] mb-8"
               >
-                Sadhanam <br />
-                <span className="text-gradient">Kayyilundo?</span>
-              </motion.h1>
+                <Image 
+                  src="/logo.png" 
+                  alt="Sadhanam Kayyilundo?" 
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </motion.div>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
