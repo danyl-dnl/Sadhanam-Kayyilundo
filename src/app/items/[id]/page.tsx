@@ -71,26 +71,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
                 {listing.description}
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="flex items-center gap-4 p-5 rounded-2xl bg-white/5 border border-white/5">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-                    <ShieldCheck className="h-6 w-6 text-emerald-500" />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold">Verified</p>
-                    <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Campus Safe</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 p-5 rounded-2xl bg-white/5 border border-white/5">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-blue-500" />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold">Immediate</p>
-                    <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Hand-over</p>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
 
