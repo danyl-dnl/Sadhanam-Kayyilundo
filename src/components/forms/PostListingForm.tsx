@@ -92,9 +92,18 @@ export function PostListingForm({
   }
 
   const removeImage = (index: number) => {
-    const newImages = [...images]
-    newImages.splice(index, 1)
-    setImages(newImages)
+    const removedPreview = previews[index]
+    
+    // If it's a new upload (blob URL), we need to remove the corresponding File object
+    if (removedPreview.startsWith('blob:')) {
+      // Find which index in the 'images' array this blob belongs to
+      // We can track this by keeping another state or just filtering.
+      // Simpler: find the blob URL's position relative to other blobs.
+      const blobIndex = previews.slice(0, index).filter(p => p.startsWith('blob:')).length
+      const newFiles = [...images]
+      newFiles.splice(blobIndex, 1)
+      setImages(newFiles)
+    }
 
     const newPreviews = [...previews]
     newPreviews.splice(index, 1)
@@ -129,7 +138,13 @@ export function PostListingForm({
       }
 
       const tableName = type === 'pg' ? 'pg_listings' : 'item_listings'
-      const finalImages = mode === 'edit' ? [...(initialData.images || []), ...uploadedUrls] : uploadedUrls
+      
+      // Get existing images that weren't removed from the previews
+      const existingRemainingImages = previews.filter(p => !p.startsWith('blob:'))
+      
+      // Combine existing remaining images with newly uploaded ones
+      // Put new images first so they show up as the primary image
+      const finalImages = [...uploadedUrls, ...existingRemainingImages]
 
       let query = supabase.from(tableName)
       
