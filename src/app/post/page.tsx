@@ -13,6 +13,16 @@ export default async function PostPage() {
     redirect('/login')
   }
 
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('year')
+    .eq('id', user.id)
+    .single()
+
+  if (!profile?.year) {
+    redirect('/profile/edit')
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-[#020617] relative overflow-hidden">
       {/* Background Decorations */}
