@@ -122,11 +122,8 @@ export default async function PGDetailPage({ params }: { params: Promise<{ id: s
             </div>
 
             <div className="glass-card rounded-[2.5rem] p-8 md:p-10 border-white/5 space-y-8">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center justify-between">
                 <h3 className="text-xl font-black text-white">Connect with Seller</h3>
-                <Badge variant="outline" className="w-fit border-emerald-500/20 text-emerald-400 font-black px-3 py-1 uppercase tracking-widest text-[10px]">
-                  Verified Student
-                </Badge>
               </div>
 
               <div className="flex items-center gap-4 p-5 rounded-[2rem] bg-white/5 border border-white/5">
@@ -136,7 +133,11 @@ export default async function PGDetailPage({ params }: { params: Promise<{ id: s
                 <div className="min-w-0">
                   <p className="text-lg md:text-xl font-black text-white leading-tight truncate">{listing.profiles.name}</p>
                   <p className="text-slate-500 font-bold text-[10px] md:text-xs uppercase tracking-widest mt-1 truncate">
-                    {listing.profiles.year} Year • MEC Thrikkakara
+                    {listing.profiles.year === '1' || listing.profiles.year === 1 ? '1st Year' : 
+                     listing.profiles.year === '2' || listing.profiles.year === 2 ? '2nd Year' : 
+                     listing.profiles.year === '3' || listing.profiles.year === 3 ? '3rd Year' : 
+                     listing.profiles.year === '4' || listing.profiles.year === 4 ? '4th Year' : 
+                     `${listing.profiles.year} Year`} • MEC Thrikkakara
                   </p>
                 </div>
               </div>

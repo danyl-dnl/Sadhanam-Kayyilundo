@@ -38,7 +38,11 @@ export default async function ProfilePage() {
               <div className="flex flex-wrap justify-center md:justify-start gap-4 text-slate-400 text-sm">
                 <div className="flex items-center gap-1.5">
                   <User className="h-4 w-4 text-emerald-500" />
-                  <span>{profile.data?.year || 'Unknown'} Year Student</span>
+                  <span>{profile.data?.year === '1' || profile.data?.year === 1 ? '1st Year' : 
+                         profile.data?.year === '2' || profile.data?.year === 2 ? '2nd Year' : 
+                         profile.data?.year === '3' || profile.data?.year === 3 ? '3rd Year' : 
+                         profile.data?.year === '4' || profile.data?.year === 4 ? '4th Year' : 
+                         `${profile.data?.year || 'Unknown'} Year`} Student</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="text-amber-400 font-bold">@</span>
