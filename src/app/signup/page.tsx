@@ -22,7 +22,7 @@ export default function SignupPage() {
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    
+
     const { data, error: signupError } = await supabase.auth.signUp({
       email,
       password,
@@ -71,9 +71,9 @@ export default function SignupPage() {
         <div className="text-center mb-10">
           <Link href="/" className="inline-flex items-center gap-3 group mb-6">
             <div className="relative w-16 h-16 rounded-2xl overflow-hidden shadow-2xl group-hover:scale-105 transition-transform">
-              <Image 
-                src="/logo.png" 
-                alt="Logo" 
+              <Image
+                src="/logo.png"
+                alt="Logo"
                 fill
                 className="object-cover mix-blend-lighten"
               />
@@ -111,10 +111,10 @@ export default function SignupPage() {
                     onChange={(e) => setYear(e.target.value)}
                     className="w-full bg-white/5 border border-white/5 rounded-2xl pl-12 pr-4 py-4 text-white focus:outline-none focus:border-emerald-400/50 transition-all font-medium appearance-none cursor-pointer"
                   >
-                    <option className="bg-slate-950">1st Year</option>
-                    <option className="bg-slate-950">2nd Year</option>
-                    <option className="bg-slate-950">3rd Year</option>
-                    <option className="bg-slate-950">4th Year</option>
+                    <option className="bg-slate-950" value="1st">1st Year</option>
+                    <option className="bg-slate-950" value="2nd">2nd Year</option>
+                    <option className="bg-slate-950" value="3rd">3rd Year</option>
+                    <option className="bg-slate-950" value="4th">4th Year</option>
                   </select>
                 </div>
               </div>

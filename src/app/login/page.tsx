@@ -20,7 +20,7 @@ export default function LoginPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    
+
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -51,9 +51,9 @@ export default function LoginPage() {
         <div className="text-center mb-10">
           <Link href="/" className="inline-flex items-center gap-3 group mb-6">
             <div className="relative w-16 h-16 rounded-2xl overflow-hidden shadow-2xl group-hover:scale-105 transition-transform">
-              <Image 
-                src="/logo.png" 
-                alt="Logo" 
+              <Image
+                src="/logo.png"
+                alt="Logo"
                 fill
                 className="object-cover mix-blend-lighten"
               />
