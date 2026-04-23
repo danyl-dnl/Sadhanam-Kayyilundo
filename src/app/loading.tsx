@@ -11,28 +11,14 @@ export default function Loading() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-emerald-500/5 blur-[100px] rounded-full delay-700" />
       
       <div className="relative flex flex-col items-center">
-        {/* Animated Logo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ 
-            opacity: [0.4, 1, 0.4],
-            scale: [0.95, 1, 0.95]
-          }}
-          transition={{ 
-            duration: 2, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="relative w-48 h-48 mb-8"
-        >
-          <Image 
-            src="/logo.png" 
-            alt="Loading..." 
-            fill
-            priority
-            className="object-contain mix-blend-lighten"
+        {/* Loading Spinner/Ring */}
+        <div className="relative w-24 h-24 mb-12">
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 border-4 border-white/5 border-t-amber-400 rounded-full"
           />
-        </motion.div>
+        </div>
 
         {/* Loading Bar */}
         <div className="w-48 h-1 bg-white/5 rounded-full overflow-hidden relative">

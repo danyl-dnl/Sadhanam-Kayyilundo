@@ -37,11 +37,11 @@ export default async function ProfilePage() {
               <h1 className="text-3xl font-bold text-white mb-2">{profile.data?.name}</h1>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 text-slate-400 text-sm">
                 <div className="flex items-center gap-1.5">
-                  <User className="h-4 w-4" />
-                  <span>{profile.data?.year} Year Student</span>
+                  <User className="h-4 w-4 text-emerald-500" />
+                  <span>{profile.data?.year || 'Unknown'} Year Student</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-amber-400 font-bold">@</span>
+                  <span className="text-slate-500 font-bold italic">Instagram</span>
                   <span>{profile.data?.instagram_handle}</span>
                 </div>
               </div>
