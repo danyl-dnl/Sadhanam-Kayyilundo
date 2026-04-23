@@ -110,9 +110,23 @@ export function PostListingForm({
     setPreviews(newPreviews)
   }
 
+  const onError = (errors: any) => {
+    const errorMessages = Object.values(errors).map((err: any) => err.message)
+    
+    if (mode === 'create' && images.length === 0) {
+      errorMessages.push('Please upload at least one image')
+    }
+
+    toast.error('Missing or Invalid Fields', {
+      description: errorMessages.join(' • ')
+    })
+  }
+
   const onSubmit = async (data: any) => {
     if (mode === 'create' && images.length === 0) {
-      toast.error('Please upload at least one image')
+      toast.error('Missing Required Fields', {
+        description: 'Please upload at least one image'
+      })
       return
     }
 
@@ -209,13 +223,13 @@ export function PostListingForm({
             )}
           >
             <Package className="h-4 w-4" />
-            Sell Gear
+            Sell Item
           </button>
         </div>
       )}
 
       <div className="glass-card rounded-[3rem] p-8 md:p-12 border-white/5 shadow-2xl">
-        <form onSubmit={currentForm.handleSubmit(onSubmit)} className="space-y-12">
+        <form onSubmit={currentForm.handleSubmit(onSubmit, onError)} className="space-y-12">
           {/* Section 1: Basic Info */}
           <div className="space-y-8">
             <h3 className="text-xl font-black text-white flex items-center gap-3 mb-8">
