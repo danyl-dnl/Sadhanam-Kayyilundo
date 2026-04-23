@@ -84,7 +84,7 @@ export function PGSearch({
             <div className="space-y-4">
               <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Room Type</label>
               <div className="flex flex-wrap gap-2">
-                {['All', 'Single', 'Shared'].map((type) => (
+                {['All', 'Single', 'Double Sharing', 'Triple Sharing'].map((type) => (
                   <button
                     key={type}
                     onClick={() => setFilter('room_type', type)}
@@ -104,18 +104,23 @@ export function PGSearch({
             <div className="space-y-4">
               <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Gender Preference</label>
               <div className="flex flex-wrap gap-2">
-                {['All', 'Boys', 'Girls', 'Any'].map((pref) => (
+                {[
+                  { label: 'All', value: 'All' },
+                  { label: 'Boys', value: 'Male' },
+                  { label: 'Girls', value: 'Female' },
+                  { label: 'Any', value: 'Any' }
+                ].map((pref) => (
                   <button
-                    key={pref}
-                    onClick={() => setFilter('gender', pref)}
+                    key={pref.label}
+                    onClick={() => setFilter('gender', pref.value)}
                     className={cn(
                       "px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest transition-all",
-                      (currentGender === pref || (!currentGender && pref === 'All'))
+                      (currentGender === pref.value || (!currentGender && pref.value === 'All'))
                         ? "bg-amber-400 text-slate-950"
                         : "bg-white/5 text-slate-400 hover:bg-white/10"
                     )}
                   >
-                    {pref}
+                    {pref.label}
                   </button>
                 ))}
               </div>
