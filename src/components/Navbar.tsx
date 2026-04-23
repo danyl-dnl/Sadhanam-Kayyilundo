@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
-import { Home, Package, PlusCircle, User, LogIn, Menu, X, Sparkles } from 'lucide-react'
+import { Home, Package, PlusCircle, User, LogIn, Menu, X, School } from 'lucide-react'
 import { Button } from './ui/button'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -53,7 +53,7 @@ export function Navbar() {
       )}>
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-emerald-500 flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg">
-            <Sparkles className="h-6 w-6 text-slate-950" />
+            <School className="h-6 w-6 text-slate-950" />
           </div>
           <span className="text-xl font-black text-white tracking-tighter uppercase hidden sm:inline-block">Sadhanam Kayyilundo</span>
         </Link>

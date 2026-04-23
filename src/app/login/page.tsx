@@ -104,7 +104,7 @@ export default function LoginPage() {
 
           <div className="mt-10 pt-10 border-t border-white/5 text-center">
             <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">
-              New to MEC Market?{' '}
+              New to Sadhanam Kayyilundo?{' '}
               <Link href="/signup" className="text-emerald-400 hover:text-emerald-300 transition-colors ml-2">
                 Create Account
               </Link>

@@ -5,7 +5,7 @@ import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
-import { Loader2, Mail, Lock, User, Camera, Sparkles, GraduationCap } from 'lucide-react'
+import { Loader2, Mail, Lock, User, Camera, Sparkles, School } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -99,7 +99,7 @@ export default function SignupPage() {
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Current Year</label>
                 <div className="relative group">
-                  <GraduationCap className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500 group-focus-within:text-emerald-400 transition-colors" />
+                  <School className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500 group-focus-within:text-emerald-400 transition-colors" />
                   <select
                     value={year}
                     onChange={(e) => setYear(e.target.value)}

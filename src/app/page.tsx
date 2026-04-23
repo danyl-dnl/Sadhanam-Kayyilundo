@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { Button } from '@/components/ui/button'
 import { createClient } from '@/lib/supabase/client'
-import { ArrowRight, Home as HomeIcon, Package, Users, CheckCircle, ShieldCheck, Zap, Sparkles, Camera } from 'lucide-react'
+import { ArrowRight, Home as HomeIcon, Package, Users, CheckCircle, ShieldCheck, School, Sparkles, Camera, Zap } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
@@ -120,12 +120,10 @@ export default function Home() {
         {/* Stats Grid */}
         <section className="py-20 relative">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
               {[
-                { label: 'Active PGs', value: stats.pgs, color: 'from-amber-400 to-orange-500' },
-                { label: 'Live Items', value: stats.items, color: 'from-emerald-400 to-teal-500' },
-                { label: 'Student Users', value: '500+', color: 'from-blue-400 to-indigo-500' },
-                { label: 'Successful Deals', value: '1.2k', color: 'from-purple-400 to-pink-500' },
+                { label: 'Active PG Listings', value: stats.pgs, color: 'from-amber-400 to-orange-500' },
+                { label: 'Live Marketplace Items', value: stats.items, color: 'from-emerald-400 to-teal-500' },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -211,8 +209,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div className="col-span-2">
               <Link href="/" className="flex items-center gap-3 text-2xl font-black text-white mb-6">
-                <span className="text-3xl">🎓</span>
-                MEC MARKET
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-emerald-500 flex items-center justify-center">
+                  <School className="h-5 w-5 text-slate-950" />
+                </div>
+                SADHANAM KAYYILUNDO
               </Link>
               <p className="text-slate-500 max-w-sm font-inter leading-relaxed">
                 The official community-driven marketplace for students of Government Model Engineering College, Thrikkakara.

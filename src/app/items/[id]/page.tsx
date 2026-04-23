@@ -42,7 +42,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
       <main className="flex-1 container mx-auto px-4 pt-32 pb-20">
         <Link href="/items" className="inline-flex items-center gap-2 text-slate-500 hover:text-white transition-all mb-10 group font-bold uppercase tracking-widest text-xs">
           <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-          Back to Market
+          Back to Sadhanam Kayyilundo
         </Link>
 
         <div className="grid lg:grid-cols-2 gap-16">
@@ -166,7 +166,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
                 <div>
                   <p className="text-2xl font-black text-white leading-tight">{listing.profiles.name}</p>
                   <p className="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1">
-                    {listing.profiles.year} Year • MEC Marketplace
+                    {listing.profiles.year} Year • Sadhanam Kayyilundo
                   </p>
                 </div>
               </div>
