@@ -12,7 +12,8 @@ import {
   ShieldCheck,
   Sparkles,
   Clock,
-  ArrowUpRight
+  ArrowUpRight,
+  Tag
 } from 'lucide-react'
 import Link from 'next/link'
 import { MarkAsSoldButton } from '@/components/listings/MarkAsSoldButton'
