@@ -452,7 +452,7 @@ export function PostListingForm({
               Contact Details
             </h3>
 
-            <div className="space-y-4 max-w-md mx-auto">
+            <div className="space-y-4">
               <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">WhatsApp / Phone Number</label>
               <div className="relative group">
                 <Phone className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-emerald-500" />

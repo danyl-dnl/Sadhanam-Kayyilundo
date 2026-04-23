@@ -98,44 +98,44 @@ export default async function PGDetailPage({ params }: { params: Promise<{ id: s
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 p-8 glass-card rounded-[2.5rem] border-white/5 relative overflow-hidden">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 p-8 glass-card rounded-[2.5rem] border-white/5 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-10">
                 <IndianRupee className="w-20 h-20" />
               </div>
               
               <div className="relative z-10">
                 <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-2">Monthly Rent</p>
-                <div className="flex items-baseline text-4xl font-black text-amber-400">
-                  <IndianRupee className="h-6 w-6 self-center mr-1" />
+                <div className="flex items-baseline text-3xl md:text-4xl font-black text-amber-400">
+                  <IndianRupee className="h-5 w-5 md:h-6 md:w-6 self-center mr-1" />
                   <span>{listing.rent.toLocaleString('en-IN')}</span>
-                  <span className="text-slate-500 text-xs font-bold uppercase tracking-widest ml-2">/mo</span>
+                  <span className="text-slate-500 text-[10px] font-bold uppercase tracking-widest ml-2">/mo</span>
                 </div>
               </div>
               
               <div className="relative z-10">
                 <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-2">Deposit</p>
-                <div className="flex items-baseline text-4xl font-black text-white">
-                  <IndianRupee className="h-6 w-6 self-center mr-1" />
+                <div className="flex items-baseline text-3xl md:text-4xl font-black text-white">
+                  <IndianRupee className="h-5 w-5 md:h-6 md:w-6 self-center mr-1" />
                   <span>{listing.deposit.toLocaleString('en-IN')}</span>
                 </div>
               </div>
             </div>
 
             <div className="glass-card rounded-[2.5rem] p-8 md:p-10 border-white/5 space-y-8">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <h3 className="text-xl font-black text-white">Connect with Seller</h3>
-                <Badge variant="outline" className="border-emerald-500/20 text-emerald-400 font-black px-3 py-1 uppercase tracking-widest text-[10px]">
+                <Badge variant="outline" className="w-fit border-emerald-500/20 text-emerald-400 font-black px-3 py-1 uppercase tracking-widest text-[10px]">
                   Verified Student
                 </Badge>
               </div>
 
               <div className="flex items-center gap-4 p-5 rounded-[2rem] bg-white/5 border border-white/5">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-slate-950 font-black text-2xl shadow-xl">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-slate-950 font-black text-xl md:text-2xl shadow-xl shrink-0">
                   {listing.profiles.name[0]}
                 </div>
-                <div>
-                  <p className="text-xl font-black text-white leading-tight">{listing.profiles.name}</p>
-                  <p className="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1">
+                <div className="min-w-0">
+                  <p className="text-lg md:text-xl font-black text-white leading-tight truncate">{listing.profiles.name}</p>
+                  <p className="text-slate-500 font-bold text-[10px] md:text-xs uppercase tracking-widest mt-1 truncate">
                     {listing.profiles.year} Year • MEC Thrikkakara
                   </p>
                 </div>
