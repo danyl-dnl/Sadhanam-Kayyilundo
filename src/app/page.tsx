@@ -248,7 +248,7 @@ export default function Home() {
           </div>
           <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-slate-600 text-sm font-inter">
-              © 2024 Sadhanam Kayyilundo. Built by <span className="text-slate-400 font-bold">Danyl</span> for the MEC Community.
+              © 2026 Sadhanam Kayyilundo. Built by <span className="text-slate-400 font-bold">Danyl</span> for the MEC Community.
             </p>
             <Link 
               href="https://docs.google.com/forms/d/e/1FAIpQLSfT08DX66z_8gdU-dzErUo2VuGYG41UNHoJTbDctXbBlZQzBw/viewform?usp=sf_link" 
