@@ -19,7 +19,7 @@ export default async function PGPage({
 
   let query = supabase
     .from('pg_listings')
-    .select('*, profiles(name)')
+    .select('*, profiles(name, year)')
     .eq('is_active', true)
     .order('created_at', { ascending: false })
 

@@ -131,11 +131,15 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
                 <div>
                   <p className="text-2xl font-black text-white leading-tight">{listing.profiles.name}</p>
                   <p className="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1">
-                    {listing.profiles.year === '1' || listing.profiles.year === 1 ? '1st Year' : 
-                     listing.profiles.year === '2' || listing.profiles.year === 2 ? '2nd Year' : 
-                     listing.profiles.year === '3' || listing.profiles.year === 3 ? '3rd Year' : 
-                     listing.profiles.year === '4' || listing.profiles.year === 4 ? '4th Year' : 
-                     `${listing.profiles.year} Year`} • Sadhanam Kayyilundo
+                    {(() => {
+                      const y = listing.profiles.year;
+                      if (!y) return 'Year Not Specified';
+                      if (String(y).toLowerCase().includes('1') || String(y).toLowerCase().includes('first')) return '1st Year';
+                      if (String(y).toLowerCase().includes('2') || String(y).toLowerCase().includes('second')) return '2nd Year';
+                      if (String(y).toLowerCase().includes('3') || String(y).toLowerCase().includes('third')) return '3rd Year';
+                      if (String(y).toLowerCase().includes('4') || String(y).toLowerCase().includes('fourth')) return '4th Year';
+                      return String(y).toLowerCase().includes('year') ? y : `${y} Year`;
+                    })()} • Sadhanam Kayyilundo
                   </p>
                 </div>
               </div>

@@ -20,7 +20,7 @@ export default async function ItemsPage({
 
   let query = supabase
     .from('item_listings')
-    .select('*, profiles(name)')
+    .select('*, profiles(name, year)')
     .eq('is_sold', false)
     .order('created_at', { ascending: false })
 

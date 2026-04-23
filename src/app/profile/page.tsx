@@ -17,8 +17,8 @@ export default async function ProfilePage() {
   }
 
   const [pgs, items, profile] = await Promise.all([
-    supabase.from('pg_listings').select('*, profiles(name)').eq('user_id', user.id).eq('is_active', true).order('created_at', { ascending: false }),
-    supabase.from('item_listings').select('*, profiles(name)').eq('user_id', user.id).order('created_at', { ascending: false }),
+    supabase.from('pg_listings').select('*, profiles(name, year)').eq('user_id', user.id).eq('is_active', true).order('created_at', { ascending: false }),
+    supabase.from('item_listings').select('*, profiles(name, year)').eq('user_id', user.id).order('created_at', { ascending: false }),
     supabase.from('profiles').select('*').eq('id', user.id).single()
   ])
 
@@ -38,11 +38,15 @@ export default async function ProfilePage() {
               <div className="flex flex-wrap justify-center md:justify-start gap-4 text-slate-400 text-sm">
                 <div className="flex items-center gap-1.5">
                   <User className="h-4 w-4 text-emerald-500" />
-                  <span>{profile.data?.year === '1' || profile.data?.year === 1 ? '1st Year' : 
-                         profile.data?.year === '2' || profile.data?.year === 2 ? '2nd Year' : 
-                         profile.data?.year === '3' || profile.data?.year === 3 ? '3rd Year' : 
-                         profile.data?.year === '4' || profile.data?.year === 4 ? '4th Year' : 
-                         `${profile.data?.year || 'Unknown'} Year`} Student</span>
+                  <span>{(() => {
+                    const y = profile.data?.year;
+                    if (!y) return 'Year Not Specified';
+                    if (String(y).toLowerCase().includes('1') || String(y).toLowerCase().includes('first')) return '1st Year';
+                    if (String(y).toLowerCase().includes('2') || String(y).toLowerCase().includes('second')) return '2nd Year';
+                    if (String(y).toLowerCase().includes('3') || String(y).toLowerCase().includes('third')) return '3rd Year';
+                    if (String(y).toLowerCase().includes('4') || String(y).toLowerCase().includes('fourth')) return '4th Year';
+                    return String(y).toLowerCase().includes('year') ? y : `${y} Year`;
+                  })()} Student</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="text-amber-400 font-bold">@</span>
@@ -50,7 +54,13 @@ export default async function ProfilePage() {
                 </div>
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
+              <Link href="/profile/edit">
+                <Button variant="outline" className="border-white/10 glass text-white hover:bg-white/5 gap-2">
+                  <Settings className="h-4 w-4" />
+                  Edit Profile
+                </Button>
+              </Link>
               <Link href="/logout">
                 <Button variant="ghost" className="text-red-400 hover:text-red-300 hover:bg-red-400/10 gap-2">
                   <LogOut className="h-4 w-4" />

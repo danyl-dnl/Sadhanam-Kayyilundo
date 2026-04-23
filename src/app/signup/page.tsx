@@ -40,17 +40,20 @@ export default function SignupPage() {
     }
 
     if (data.user) {
-      const { error: profileError } = await supabase.from('profiles').insert({
+      const { error: profileError } = await supabase.from('profiles').upsert({
         id: data.user.id,
         name,
         year,
+        updated_at: new Date().toISOString(),
       })
 
       if (profileError) {
-        console.error(profileError)
+        console.error('Profile creation error:', profileError)
+        toast.error('Account created, but profile setup failed. You can update your details in the profile settings.')
+      } else {
+        toast.success('Account created! You can now log in.')
       }
-
-      toast.success('Account created! You can now log in.')
+      
       router.push('/login')
     }
     setLoading(false)
