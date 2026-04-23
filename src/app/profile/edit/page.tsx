@@ -58,11 +58,10 @@ export default function EditProfilePage() {
         name,
         year,
         instagram_handle: instagram,
-        updated_at: new Date().toISOString(),
       })
 
     if (error) {
-      toast.error('Failed to update profile')
+      toast.error('Failed to update profile: ' + error.message)
     } else {
       toast.success('Profile updated successfully!')
       router.push('/profile')

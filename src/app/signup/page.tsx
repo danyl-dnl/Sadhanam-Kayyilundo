@@ -44,7 +44,6 @@ export default function SignupPage() {
         id: data.user.id,
         name,
         year,
-        updated_at: new Date().toISOString(),
       })
 
       if (profileError) {

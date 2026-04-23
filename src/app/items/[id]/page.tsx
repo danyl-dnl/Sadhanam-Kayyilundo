@@ -19,7 +19,7 @@ import {
 import Link from 'next/link'
 import { MarkAsSoldButton } from '@/components/listings/MarkAsSoldButton'
 import { ImageCarousel } from '@/components/listings/ImageCarousel'
-import { cn } from '@/lib/utils'
+import { OwnerActions } from '@/components/listings/OwnerActions'
 
 export default async function ItemDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const supabase = await createClient()
@@ -77,6 +77,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
 
           {/* Right: Info & Contact */}
           <div className="space-y-8 lg:sticky lg:top-32 h-fit">
+            {isOwner && <OwnerActions listingId={listing.id} type="item" />}
             <div className="space-y-6">
               <div className="flex flex-wrap gap-3 items-center justify-between">
                 <div className="flex gap-3">

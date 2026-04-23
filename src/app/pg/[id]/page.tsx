@@ -20,6 +20,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ImageCarousel } from '@/components/listings/ImageCarousel'
 
+import { OwnerActions } from '@/components/listings/OwnerActions'
+
 export default async function PGDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const supabase = await createClient()
   const { id } = await params
@@ -33,6 +35,9 @@ export default async function PGDetailPage({ params }: { params: Promise<{ id: s
   if (!listing || error) {
     notFound()
   }
+
+  const { data: { user } } = await supabase.auth.getUser()
+  const isOwner = user?.id === listing.user_id
 
   return (
     <div className="flex flex-col min-h-screen bg-[#020617]">
@@ -76,6 +81,8 @@ export default async function PGDetailPage({ params }: { params: Promise<{ id: s
 
           {/* Right: Info & Contact */}
           <div className="space-y-8 lg:sticky lg:top-32 h-fit">
+            {isOwner && <OwnerActions listingId={listing.id} type="pg" />}
+            
             <div className="space-y-6">
               <div className="flex flex-wrap gap-3">
                 <Badge className="bg-amber-400 text-slate-950 font-black px-4 py-1.5 rounded-full border-none">
