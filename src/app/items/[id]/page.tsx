@@ -193,5 +193,3 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
   )
 }
 
-import { cn } from '@/lib/utils'
-import { Tag, User } from 'lucide-react'
