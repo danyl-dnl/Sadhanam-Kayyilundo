@@ -213,7 +213,7 @@ export function PostListingForm({
               <div className="relative group">
                 <input
                   {...currentForm.register('title')}
-                  placeholder={type === 'pg' ? "e.g. Single Room near MEC Main Gate" : "e.g. Apple MacBook Pro M1 2020"}
+                  placeholder={type === 'pg' ? "e.g. Single Room near MEC Main Gate" : "e.g. Study Table or Chair"}
                   className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white text-lg font-bold focus:outline-none focus:border-amber-400/50 transition-all placeholder:text-slate-600 shadow-inner"
                 />
               </div>
