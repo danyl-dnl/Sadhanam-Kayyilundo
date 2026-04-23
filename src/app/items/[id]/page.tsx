@@ -14,9 +14,10 @@ import {
   Clock,
   ArrowUpRight
 } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { MarkAsSoldButton } from '@/components/listings/MarkAsSoldButton'
+import { ImageCarousel } from '@/components/listings/ImageCarousel'
+import { cn } from '@/lib/utils'
 
 export default async function ItemDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const supabase = await createClient()
@@ -48,35 +49,16 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left: Media */}
           <div className="space-y-8">
-            <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/5 bg-slate-900 shadow-2xl group">
-              <Image 
-                src={listing.images[0] || 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800'} 
-                alt={listing.title} 
-                fill 
-                className={cn(
-                  "object-cover transition-transform duration-1000 group-hover:scale-110",
-                  listing.is_sold && "opacity-40 grayscale"
-                )}
-              />
+            <div className="relative overflow-hidden rounded-[3rem] border border-white/5 bg-slate-900 shadow-2xl">
+              <ImageCarousel images={listing.images} title={listing.title} aspectRatio="aspect-square" />
               {listing.is_sold && (
-                <div className="absolute inset-0 flex items-center justify-center z-20">
+                <div className="absolute inset-0 flex items-center justify-center z-30 bg-slate-950/40 backdrop-blur-[2px]">
                   <span className="px-10 py-4 bg-red-500 text-white font-black rounded-[2rem] rotate-[-15deg] shadow-2xl border-4 border-white text-4xl">
                     SOLD
                   </span>
                 </div>
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
             </div>
-
-            {listing.images.length > 1 && (
-              <div className="grid grid-cols-4 gap-4">
-                {listing.images.slice(1).map((img: string, i: number) => (
-                  <div key={i} className="relative aspect-square rounded-[1.5rem] overflow-hidden border border-white/5 group">
-                    <Image src={img} alt={`${listing.title} ${i + 2}`} fill className="object-cover transition-transform group-hover:scale-110" />
-                  </div>
-                ))}
-              </div>
-            )}
 
             <div className="glass-card rounded-[2.5rem] p-8 md:p-10 border-white/5">
               <h3 className="text-2xl font-black text-white mb-6 flex items-center gap-3">

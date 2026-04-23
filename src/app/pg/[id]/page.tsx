@@ -18,6 +18,7 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ImageCarousel } from '@/components/listings/ImageCarousel'
 
 export default async function PGDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const supabase = await createClient()
@@ -47,25 +48,9 @@ export default async function PGDetailPage({ params }: { params: Promise<{ id: s
           {/* Left: Media & Description */}
           <div className="space-y-12">
             <div className="space-y-6">
-              <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl group">
-                <Image 
-                  src={listing.images[0] || 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800'} 
-                  alt={listing.title} 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-white/5 shadow-2xl">
+                <ImageCarousel images={listing.images} title={listing.title} aspectRatio="aspect-video" />
               </div>
-              
-              {listing.images.length > 1 && (
-                <div className="grid grid-cols-4 gap-4">
-                  {listing.images.slice(1).map((img: string, i: number) => (
-                    <div key={i} className="relative aspect-square rounded-2xl overflow-hidden border border-white/5 group">
-                      <Image src={img} alt={`${listing.title} ${i + 2}`} fill className="object-cover transition-transform group-hover:scale-110" />
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
 
             <div className="glass-card rounded-[2.5rem] p-8 md:p-10 border-white/5">

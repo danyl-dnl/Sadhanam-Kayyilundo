@@ -6,12 +6,20 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-export function ImageCarousel({ images, title }: { images: string[], title: string }) {
+export function ImageCarousel({ 
+  images, 
+  title, 
+  aspectRatio = "aspect-square" 
+}: { 
+  images: string[], 
+  title: string,
+  aspectRatio?: string
+}) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   if (!images || images.length === 0) {
     return (
-      <div className="relative aspect-square w-full bg-slate-900 flex items-center justify-center">
+      <div className={cn("relative w-full bg-slate-900 flex items-center justify-center", aspectRatio)}>
         <Image 
           src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800"
           alt="Placeholder"
@@ -35,7 +43,7 @@ export function ImageCarousel({ images, title }: { images: string[], title: stri
   }
 
   return (
-    <div className="relative aspect-square w-full overflow-hidden group/carousel">
+    <div className={cn("relative w-full overflow-hidden group/carousel", aspectRatio)}>
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
