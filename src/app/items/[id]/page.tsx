@@ -13,7 +13,8 @@ import {
   Sparkles,
   Clock,
   ArrowUpRight,
-  Tag
+  Tag,
+  User
 } from 'lucide-react'
 import Link from 'next/link'
 import { MarkAsSoldButton } from '@/components/listings/MarkAsSoldButton'
