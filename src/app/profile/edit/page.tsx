@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
-import { Loader2, User, School, Instagram, ArrowLeft, Save } from 'lucide-react'
+import { Loader2, User, School, AtSign, ArrowLeft, Save } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -136,7 +136,7 @@ export default function EditProfilePage() {
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Instagram Handle (Optional)</label>
                 <div className="relative group">
-                  <Instagram className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500 group-focus-within:text-pink-400 transition-colors" />
+                  <AtSign className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500 group-focus-within:text-pink-400 transition-colors" />
                   <input
                     type="text"
                     value={instagram}
