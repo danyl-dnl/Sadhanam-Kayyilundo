@@ -58,7 +58,7 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="relative w-full max-w-2xl mx-auto h-[300px] mb-8"
+                className="relative w-full max-w-4xl mx-auto h-[350px] md:h-[500px] mb-12"
               >
                 <Image 
                   src="/logo.png" 
