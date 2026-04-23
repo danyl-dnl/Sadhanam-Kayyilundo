@@ -111,20 +111,30 @@ export function ImageCarousel({
 
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent pointer-events-none" />
 
-      {/* Navigation Arrows — always visible on mobile, hover on desktop */}
+      {/* Premium Navigation Arrows */}
       {images.length > 1 && (
         <>
           <button
             onClick={(e) => handleClick(e, goPrev)}
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white border border-white/10 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity hover:bg-white hover:text-black z-20"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-all duration-300 active:scale-90"
+            aria-label="Previous image"
           >
-            <ChevronLeft className="h-4 w-4" />
+            <div className="relative flex items-center justify-center w-9 h-9">
+              {/* Glow ring */}
+              <div className="absolute inset-0 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:bg-white/20 hover:border-white/40 hover:shadow-[0_0_24px_rgba(255,255,255,0.2)] transition-all duration-200" />
+              <ChevronLeft className="relative h-4 w-4 text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]" strokeWidth={2.5} />
+            </div>
           </button>
           <button
             onClick={(e) => handleClick(e, goNext)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white border border-white/10 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity hover:bg-white hover:text-black z-20"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-all duration-300 active:scale-90"
+            aria-label="Next image"
           >
-            <ChevronRight className="h-4 w-4" />
+            <div className="relative flex items-center justify-center w-9 h-9">
+              {/* Glow ring */}
+              <div className="absolute inset-0 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:bg-white/20 hover:border-white/40 hover:shadow-[0_0_24px_rgba(255,255,255,0.2)] transition-all duration-200" />
+              <ChevronRight className="relative h-4 w-4 text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]" strokeWidth={2.5} />
+            </div>
           </button>
         </>
       )}
