@@ -17,7 +17,7 @@ export default async function ProfilePage() {
   }
 
   const [pgs, items, profile] = await Promise.all([
-    supabase.from('pg_listings').select('*, profiles(name)').eq('user_id', user.id).order('created_at', { ascending: false }),
+    supabase.from('pg_listings').select('*, profiles(name)').eq('user_id', user.id).eq('is_active', true).order('created_at', { ascending: false }),
     supabase.from('item_listings').select('*, profiles(name)').eq('user_id', user.id).order('created_at', { ascending: false }),
     supabase.from('profiles').select('*').eq('id', user.id).single()
   ])
