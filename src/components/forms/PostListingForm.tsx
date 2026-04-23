@@ -35,17 +35,27 @@ const itemSchema = z.object({
   contact_phone: z.string().min(10, 'Valid phone number is required'),
 })
 
-export function PostListingForm({ user }: { user: any }) {
-  const [type, setType] = useState<'pg' | 'item'>('pg')
+export function PostListingForm({ 
+  user, 
+  initialData, 
+  listingId, 
+  mode = 'create' 
+}: { 
+  user: any, 
+  initialData?: any, 
+  listingId?: string,
+  mode?: 'create' | 'edit'
+}) {
+  const [type, setType] = useState<'pg' | 'item'>(initialData?.type || 'pg')
   const [images, setImages] = useState<File[]>([])
-  const [previews, setPreviews] = useState<string[]>([])
+  const [previews, setPreviews] = useState<string[]>(initialData?.images || [])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const router = useRouter()
   const supabase = createClient()
 
   const pgForm = useForm({
     resolver: zodResolver(pgSchema),
-    defaultValues: {
+    defaultValues: initialData?.type === 'pg' ? initialData : {
       title: '',
       room_type: 'Single',
       location: '',
@@ -60,7 +70,7 @@ export function PostListingForm({ user }: { user: any }) {
 
   const itemForm = useForm({
     resolver: zodResolver(itemSchema),
-    defaultValues: {
+    defaultValues: initialData?.type === 'item' ? initialData : {
       title: '',
       category: 'Electronics',
       condition: 'Good',
@@ -92,7 +102,7 @@ export function PostListingForm({ user }: { user: any }) {
   }
 
   const onSubmit = async (data: any) => {
-    if (images.length === 0) {
+    if (mode === 'create' && images.length === 0) {
       toast.error('Please upload at least one image')
       return
     }
@@ -119,17 +129,30 @@ export function PostListingForm({ user }: { user: any }) {
       }
 
       const tableName = type === 'pg' ? 'pg_listings' : 'item_listings'
-      const { error: insertError } = await supabase
-        .from(tableName)
-        .insert({
-          ...data,
-          user_id: user.id,
-          images: uploadedUrls,
-        })
+      const finalImages = mode === 'edit' ? [...(initialData.images || []), ...uploadedUrls] : uploadedUrls
 
-      if (insertError) throw insertError
+      let query = supabase.from(tableName)
+      
+      if (mode === 'edit' && listingId) {
+        const { error: updateError } = await query
+          .update({
+            ...data,
+            images: finalImages,
+          })
+          .eq('id', listingId)
+        if (updateError) throw updateError
+        toast.success('Listing updated successfully!')
+      } else {
+        const { error: insertError } = await query
+          .insert({
+            ...data,
+            user_id: user.id,
+            images: finalImages,
+          })
+        if (insertError) throw insertError
+        toast.success('Listing posted successfully!')
+      }
 
-      toast.success('Listing posted successfully!')
       router.push(type === 'pg' ? '/pg' : '/items')
       router.refresh()
     } catch (error: any) {
@@ -144,31 +167,37 @@ export function PostListingForm({ user }: { user: any }) {
 
   return (
     <div className="max-w-4xl mx-auto space-y-10">
-      {/* Type Toggle */}
-      <div className="flex p-2 bg-white/5 backdrop-blur-xl border border-white/5 rounded-[2rem] max-w-sm mx-auto shadow-2xl">
-        <button
-          type="button"
-          onClick={() => setType('pg')}
-          className={cn(
-            "flex-1 flex items-center justify-center gap-3 py-4 rounded-[1.5rem] text-sm font-black uppercase tracking-widest transition-all",
-            type === 'pg' ? "bg-white text-slate-950 shadow-xl" : "text-slate-500 hover:text-white"
-          )}
-        >
-          <Home className="h-4 w-4" />
-          PG Room
-        </button>
-        <button
-          type="button"
-          onClick={() => setType('item')}
-          className={cn(
-            "flex-1 flex items-center justify-center gap-3 py-4 rounded-[1.5rem] text-sm font-black uppercase tracking-widest transition-all",
-            type === 'item' ? "bg-white text-slate-950 shadow-xl" : "text-slate-500 hover:text-white"
-          )}
-        >
-          <Package className="h-4 w-4" />
-          Market Item
-        </button>
-      </div>
+      {/* Type Toggle - Only show in create mode */}
+      {mode === 'create' && (
+        <div className="flex p-2 bg-white/5 backdrop-blur-xl border border-white/5 rounded-[2rem] max-w-sm mx-auto shadow-2xl">
+          <button
+            type="button"
+            onClick={() => setType('pg')}
+            className={cn(
+              "flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-2xl transition-all font-black uppercase tracking-widest text-xs",
+              type === 'pg' 
+                ? "bg-amber-400 text-slate-950 shadow-lg" 
+                : "text-slate-500 hover:text-white"
+            )}
+          >
+            <Home className="h-4 w-4" />
+            Post PG
+          </button>
+          <button
+            type="button"
+            onClick={() => setType('item')}
+            className={cn(
+              "flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-2xl transition-all font-black uppercase tracking-widest text-xs",
+              type === 'item' 
+                ? "bg-emerald-500 text-slate-950 shadow-lg" 
+                : "text-slate-500 hover:text-white"
+            )}
+          >
+            <Package className="h-4 w-4" />
+            Sell Gear
+          </button>
+        </div>
+      )}
 
       <div className="glass-card rounded-[3rem] p-8 md:p-12 border-white/5 shadow-2xl">
         <form onSubmit={currentForm.handleSubmit(onSubmit)} className="space-y-12">

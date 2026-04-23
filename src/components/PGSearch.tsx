@@ -106,8 +106,8 @@ export function PGSearch({
               <div className="flex flex-wrap gap-2">
                 {[
                   { label: 'All', value: 'All' },
-                  { label: 'Boys', value: 'Male' },
-                  { label: 'Girls', value: 'Female' },
+                  { label: 'Male', value: 'Male' },
+                  { label: 'Female', value: 'Female' },
                   { label: 'Any', value: 'Any' }
                 ].map((pref) => (
                   <button

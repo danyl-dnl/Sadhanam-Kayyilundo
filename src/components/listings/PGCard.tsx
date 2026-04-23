@@ -2,7 +2,11 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Home, MapPin, IndianRupee, Users, Calendar, ArrowUpRight } from 'lucide-react'
+import { Home, MapPin, IndianRupee, Users, Calendar, ArrowUpRight, Edit3, Trash2 } from 'lucide-react'
+import { createClient } from '@/lib/supabase/client'
+import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { Badge } from '../ui/badge'
 import { motion } from 'framer-motion'
@@ -17,13 +21,49 @@ interface PGListing {
   available_from: string
   gender_preference: string
   images: string[]
+  user_id: string
   profiles: {
     name: string
   }
 }
 
 export function PGCard({ listing }: { listing: PGListing }) {
+  const router = useRouter()
+  const supabase = createClient()
+  const [isOwner, setIsOwner] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
   const mainImage = listing.images[0] || 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800'
+
+  useEffect(() => {
+    const checkOwner = async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (user && user.id === listing.user_id) {
+        setIsOwner(true)
+      }
+    }
+    checkOwner()
+  }, [listing.user_id])
+
+  const handleDelete = async (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    
+    if (!confirm('Are you sure you want to delete this listing?')) return
+
+    setIsDeleting(true)
+    const { error } = await supabase
+      .from('pg_listings')
+      .update({ is_active: false }) // Soft delete
+      .eq('id', listing.id)
+
+    if (error) {
+      toast.error('Failed to delete listing')
+      setIsDeleting(false)
+    } else {
+      toast.success('Listing deleted')
+      router.refresh()
+    }
+  }
 
   return (
     <motion.div
@@ -49,6 +89,25 @@ export function PGCard({ listing }: { listing: PGListing }) {
                 {listing.gender_preference}
               </Badge>
             </div>
+
+            {isOwner && (
+              <div className="absolute top-4 right-4 flex gap-2 z-30">
+                <Link 
+                  href={`/pg/edit/${listing.id}`}
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/10 text-white hover:bg-amber-400 hover:text-slate-950 transition-all shadow-xl"
+                >
+                  <Edit3 className="h-4 w-4" />
+                </Link>
+                <button
+                  onClick={handleDelete}
+                  disabled={isDeleting}
+                  className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/10 text-white hover:bg-red-500 transition-all shadow-xl disabled:opacity-50"
+                >
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </div>
+            )}
 
             <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-white">
               <div className="flex items-center gap-1 font-black text-2xl">
