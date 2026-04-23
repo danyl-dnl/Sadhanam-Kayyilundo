@@ -58,7 +58,7 @@ export function Navbar() {
               src="/logo.png" 
               alt="Sadhanam Kayyilundo" 
               fill
-              className="object-cover"
+              className="object-cover mix-blend-lighten"
             />
           </div>
           <span className="text-xl font-black text-white tracking-tighter uppercase hidden sm:inline-block">Sadhanam Kayyilundo</span>

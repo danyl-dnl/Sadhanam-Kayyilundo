@@ -65,7 +65,7 @@ export default function Home() {
                   alt="Sadhanam Kayyilundo?" 
                   fill
                   priority
-                  className="object-contain"
+                  className="object-contain mix-blend-lighten [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)]"
                 />
               </motion.div>
 
@@ -220,7 +220,7 @@ export default function Home() {
                     src="/logo.png" 
                     alt="Logo" 
                     fill
-                    className="object-cover"
+                    className="object-cover mix-blend-lighten"
                   />
                 </div>
                 SADHANAM KAYYILUNDO

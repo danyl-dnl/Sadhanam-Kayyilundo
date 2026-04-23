@@ -75,7 +75,7 @@ export default function SignupPage() {
                 src="/logo.png" 
                 alt="Logo" 
                 fill
-                className="object-cover"
+                className="object-cover mix-blend-lighten"
               />
             </div>
             <span className="text-2xl font-black text-white tracking-tighter uppercase">Sadhanam Kayyilundo</span>
