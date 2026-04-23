@@ -148,8 +148,8 @@ export function ItemCard({ listing }: { listing: ItemListing }) {
                 <span className="text-xs font-bold text-slate-400 truncate max-w-[100px]">{listing.profiles.name}</span>
               </div>
               <div className="flex items-center gap-1.5 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                <ShieldCheck className="h-3.5 w-3.5 text-blue-400" />
-                Verified
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Active Post
               </div>
             </div>
           </div>
