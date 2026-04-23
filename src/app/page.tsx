@@ -240,7 +240,7 @@ export default function Home() {
               © 2024 Sadhanam Kayyilundo. Built by <span className="text-slate-400 font-bold">Danyl</span> for the MEC Community.
             </p>
             <Link 
-              href="https://forms.gle/your-form-link-here" 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfT08DX66z_8gdU-dzErUo2VuGYG41UNHoJTbDctXbBlZQzBw/viewform?usp=sf_link" 
               target="_blank"
               className="text-slate-500 hover:text-amber-400 text-sm font-bold uppercase tracking-widest transition-colors flex items-center gap-2"
             >
