@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { Button } from '@/components/ui/button'
 import { createClient } from '@/lib/supabase/client'
-import { ArrowRight, Home as HomeIcon, Package, Users, CheckCircle, ShieldCheck, School, Sparkles, Camera, Zap } from 'lucide-react'
+import { ArrowRight, Home as HomeIcon, Package, Users, CheckCircle, ShieldCheck, Sparkles, Camera, Zap } from 'lucide-react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
@@ -209,8 +210,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div className="col-span-2">
               <Link href="/" className="flex items-center gap-3 text-2xl font-black text-white mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-emerald-500 flex items-center justify-center">
-                  <School className="h-5 w-5 text-slate-950" />
+                <div className="relative w-10 h-10 rounded-lg overflow-hidden">
+                  <Image 
+                    src="/logo.png" 
+                    alt="Logo" 
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 SADHANAM KAYYILUNDO
               </Link>

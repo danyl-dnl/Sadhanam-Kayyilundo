@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
-import { Home, Package, PlusCircle, User, LogIn, Menu, X, School } from 'lucide-react'
+import { Home, Package, PlusCircle, User, LogIn, Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { Button } from './ui/button'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -52,8 +53,13 @@ export function Navbar() {
         scrolled ? "glass shadow-2xl border-white/10" : "bg-transparent border-transparent"
       )}>
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-emerald-500 flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg">
-            <School className="h-6 w-6 text-slate-950" />
+          <div className="relative w-12 h-12 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+            <Image 
+              src="/logo.png" 
+              alt="Sadhanam Kayyilundo" 
+              fill
+              className="object-cover"
+            />
           </div>
           <span className="text-xl font-black text-white tracking-tighter uppercase hidden sm:inline-block">Sadhanam Kayyilundo</span>
         </Link>

@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
 import { Loader2, Mail, Lock, User, Camera, Sparkles, School } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -69,8 +70,13 @@ export default function SignupPage() {
       >
         <div className="text-center mb-10">
           <Link href="/" className="inline-flex items-center gap-3 group mb-6">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-emerald-500 flex items-center justify-center group-hover:rotate-12 transition-transform shadow-2xl">
-              <Sparkles className="h-7 w-7 text-slate-950" />
+            <div className="relative w-16 h-16 rounded-2xl overflow-hidden shadow-2xl group-hover:scale-105 transition-transform">
+              <Image 
+                src="/logo.png" 
+                alt="Logo" 
+                fill
+                className="object-cover"
+              />
             </div>
             <span className="text-2xl font-black text-white tracking-tighter uppercase">Sadhanam Kayyilundo</span>
           </Link>
