@@ -50,7 +50,7 @@ export default function SignupPage() {
         console.error(profileError)
       }
 
-      toast.success('Account created! Please check your email.')
+      toast.success('Account created! You can now log in.')
       router.push('/login')
     }
     setLoading(false)
