@@ -41,7 +41,7 @@ export default async function ProfilePage() {
                   <span>{profile.data?.year || 'Unknown'} Year Student</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-slate-500 font-bold italic">Instagram</span>
+                  <span className="text-amber-400 font-bold">@</span>
                   <span>{profile.data?.instagram_handle}</span>
                 </div>
               </div>
