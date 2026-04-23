@@ -11,6 +11,8 @@ import { cn } from '@/lib/utils'
 import { Badge } from '../ui/badge'
 import { motion } from 'framer-motion'
 
+import { ImageCarousel } from './ImageCarousel'
+
 interface ItemListing {
   id: string
   title: string
@@ -72,15 +74,9 @@ export function ItemCard({ listing }: { listing: ItemListing }) {
       <Link href={`/items/${listing.id}`}>
         <div className="glass-card rounded-[2rem] overflow-hidden flex flex-col h-full group">
           <div className="relative aspect-square w-full overflow-hidden">
-            <Image
-              src={mainImage}
-              alt={listing.title}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
+            <ImageCarousel images={listing.images} title={listing.title} />
             
-            <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+            <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-20">
               <Badge className="bg-emerald-500 text-slate-950 font-bold border-none">
                 {listing.category}
               </Badge>
