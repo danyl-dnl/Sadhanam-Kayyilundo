@@ -77,7 +77,7 @@ export default async function PGDetailPage({ params }: { params: Promise<{ id: s
                 {listing.description}
               </p>
 
-              <h3 className="text-xl font-black text-white mb-6">Premium Amenities</h3>
+              <h3 className="text-xl font-black text-white mb-6">Included Amenities</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {listing.amenities.map((amenity: string) => (
                   <div key={amenity} className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/5 text-slate-300 transition-colors hover:bg-white/10 hover:border-white/10">

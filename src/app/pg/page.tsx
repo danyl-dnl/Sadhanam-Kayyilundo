@@ -43,9 +43,9 @@ export default async function PGPage({
                 <MapPin className="h-3 w-3" />
                 Thrikkakara Campus
               </div>
-              <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">Verified Stays.</h1>
+              <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">Hostel Stays.</h1>
               <p className="text-slate-400 text-lg font-inter">
-                Premium hostels and PGs curated for Model Engineering College students. 
+                Hostels and PGs curated for Model Engineering College students. 
                 Find your second home with confidence.
               </p>
             </div>

@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sadhanam Kayyilundo | The Official MECian Marketplace",
+  title: "Sadhanam Kayyilundo | The MECian Marketplace",
   description: "Find PG rentals and buy/sell items from your seniors at MEC Thrikkakara. Sadhanam Kayyilundo?",
 };
 

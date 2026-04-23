@@ -50,7 +50,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 mb-8"
               >
                 <Sparkles className="h-4 w-4 text-amber-400" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-300">Official MEC Marketplace</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-300">MEC Marketplace</span>
               </motion.div>
               
               <motion.h1
@@ -69,7 +69,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-inter"
               >
-                The premium destination for MECians to find verified PGs and trade essentials. 
+                The community destination for MECians to find PGs and trade essentials. 
                 Built by students, for the community of Model Engineering College.
               </motion.p>
 
@@ -102,7 +102,7 @@ export default function Home() {
               >
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="h-5 w-5" />
-                  <span className="font-bold tracking-widest text-sm uppercase">Verified Only</span>
+                  <span className="font-bold tracking-widest text-sm uppercase">MECians Only</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Zap className="h-5 w-5" />
