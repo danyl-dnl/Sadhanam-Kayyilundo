@@ -41,7 +41,7 @@ export default async function PGPage({
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold uppercase tracking-widest mb-4">
                 <MapPin className="h-3 w-3" />
-                Thrikkakara Campus
+                MEC Thrikkakara
               </div>
               <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">Hostel Stays.</h1>
               <p className="text-slate-400 text-lg font-inter">

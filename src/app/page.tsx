@@ -179,7 +179,7 @@ export default function Home() {
                 />
                 <div className="absolute bottom-8 left-8 z-20">
                   <h3 className="text-3xl font-black text-white mb-2">Hostels & PGs</h3>
-                  <p className="text-slate-400 font-medium mb-6">Verified stays near Thrikkakara campus.</p>
+                  <p className="text-slate-400 font-medium mb-6">Stays near MEC Thrikkakara.</p>
                   <Link href="/pg">
                     <Button variant="link" className="text-amber-400 p-0 font-bold text-lg hover:text-amber-300">
                       View Listings <ArrowRight className="ml-2 h-4 w-4" />
