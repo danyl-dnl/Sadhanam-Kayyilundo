@@ -211,11 +211,10 @@ export function PostListingForm({
             <div className="space-y-4">
               <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Listing Title</label>
               <div className="relative group">
-                <Sparkles className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500 group-focus-within:text-amber-400 transition-colors" />
                 <input
                   {...currentForm.register('title')}
                   placeholder={type === 'pg' ? "e.g. Single Room near MEC Main Gate" : "e.g. Apple MacBook Pro M1 2020"}
-                  className="w-full bg-white/5 border border-white/5 rounded-2xl pl-14 pr-6 py-5 text-white text-lg font-bold focus:outline-none focus:border-amber-400/50 transition-all placeholder:text-slate-600 shadow-inner"
+                  className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white text-lg font-bold focus:outline-none focus:border-amber-400/50 transition-all placeholder:text-slate-600 shadow-inner"
                 />
               </div>
               {currentForm.formState.errors.title && (
@@ -450,7 +449,6 @@ export function PostListingForm({
             ) : (
               <span className="flex items-center justify-center gap-4">
                 Publish Listing
-                <Sparkles className="h-6 w-6 group-hover:rotate-12 transition-transform text-amber-500" />
               </span>
             )}
           </Button>
