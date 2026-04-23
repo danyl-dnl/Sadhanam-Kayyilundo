@@ -28,7 +28,7 @@ export default async function EditItemPage({
       <Navbar />
       <main className="flex-1 container mx-auto px-4 pt-32 pb-20">
         <div className="max-w-2xl mx-auto mb-16 text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">Edit Gear.</h1>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">Edit Item.</h1>
           <p className="text-slate-400 text-lg font-inter">Update your item details for the marketplace.</p>
         </div>
 

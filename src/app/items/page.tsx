@@ -61,7 +61,7 @@ export default async function ItemsPage({
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500 group-focus-within:text-emerald-500 transition-colors" />
                 <input 
                   type="text" 
-                  placeholder="Search gear..." 
+                  placeholder="Search items..." 
                   className="bg-slate-900/50 backdrop-blur-xl border border-white/5 text-white text-sm rounded-xl pl-11 pr-4 py-3 w-full md:w-80 focus:outline-none focus:border-emerald-500/50 transition-all shadow-2xl"
                 />
               </div>
@@ -98,7 +98,7 @@ export default async function ItemsPage({
             <div className="w-24 h-24 bg-white/5 rounded-3xl flex items-center justify-center mb-8 rotate-12">
               <Tag className="h-12 w-12 text-slate-700" />
             </div>
-            <h3 className="text-2xl font-black text-white mb-3">No gear found.</h3>
+            <h3 className="text-2xl font-black text-white mb-3">No items found.</h3>
             <p className="text-slate-500 max-w-sm font-inter mb-8">
               Looks like everything in this category has been snatched up! Why not list something of your own?
             </p>

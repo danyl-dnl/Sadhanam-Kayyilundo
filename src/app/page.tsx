@@ -93,7 +93,7 @@ export default function Home() {
                 </Link>
                 <Link href="/items" className="w-full sm:w-auto">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto h-14 px-8 rounded-2xl border-white/10 glass text-white hover:bg-white/5 font-bold text-lg transition-all">
-                    Shop Gear
+                    Shop Items
                     <Package className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -197,7 +197,7 @@ export default function Home() {
                 />
                 <div className="absolute bottom-8 left-8 z-20">
                   <h3 className="text-3xl font-black text-white mb-2">Student Market</h3>
-                  <p className="text-slate-400 font-medium mb-6">Electronics, books, and college gear.</p>
+                  <p className="text-slate-400 font-medium mb-6">Electronics, books, and college items.</p>
                   <Link href="/items">
                     <Button variant="link" className="text-emerald-400 p-0 font-bold text-lg hover:text-emerald-300">
                       Explore Shop <ArrowRight className="ml-2 h-4 w-4" />
