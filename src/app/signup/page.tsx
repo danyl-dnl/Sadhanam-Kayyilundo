@@ -61,8 +61,8 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen bg-[#020617] flex flex-col items-center justify-center p-6 relative overflow-hidden">
       {/* Background Decorations */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-amber-500/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-500/10 bg-decoration-optimized pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-amber-500/10 bg-decoration-optimized pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
