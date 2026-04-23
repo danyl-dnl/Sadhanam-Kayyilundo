@@ -2,7 +2,8 @@ import { createClient } from '@/lib/supabase/server'
 import { Navbar } from '@/components/Navbar'
 import { PGCard } from '@/components/listings/PGCard'
 import { Button } from '@/components/ui/button'
-import { Search, Filter, SlidersHorizontal, MapPin } from 'lucide-react'
+import { PGSearch } from '@/components/PGSearch'
+import { MapPin, Search } from 'lucide-react'
 
 export default async function PGPage({
   searchParams,
@@ -50,20 +51,11 @@ export default async function PGPage({
               </p>
             </div>
             
-            <div className="flex flex-wrap items-center gap-4">
-              <Button variant="outline" className="h-12 rounded-xl border-white/10 glass text-white hover:bg-white/5 font-bold gap-2">
-                <SlidersHorizontal className="h-4 w-4" />
-                Filters
-              </Button>
-              <div className="relative group flex-1 md:flex-none">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500 group-focus-within:text-amber-400 transition-colors" />
-                <input 
-                  type="text" 
-                  placeholder="Search area..." 
-                  className="bg-slate-900/50 backdrop-blur-xl border border-white/5 text-white text-sm rounded-xl pl-11 pr-4 py-3 w-full md:w-80 focus:outline-none focus:border-amber-400/50 transition-all shadow-2xl"
-                />
-              </div>
-            </div>
+            <PGSearch 
+              currentLocation={location}
+              currentRoomType={roomType}
+              currentGender={gender}
+            />
           </div>
         </div>
 
