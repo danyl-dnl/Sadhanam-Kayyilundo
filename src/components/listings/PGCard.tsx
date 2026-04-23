@@ -87,20 +87,20 @@ export function PGCard({ listing }: { listing: PGListing }) {
             </div>
 
             {isOwner && (
-              <div className="absolute top-4 right-4 flex gap-2 z-30">
+              <div className="absolute bottom-12 right-3 flex gap-1.5 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 <Link 
                   href={`/pg/edit/${listing.id}`}
                   onClick={(e) => e.stopPropagation()}
-                  className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/10 text-white hover:bg-amber-400 hover:text-slate-950 transition-all shadow-xl"
+                  className="w-7 h-7 rounded-lg bg-black/50 backdrop-blur-md flex items-center justify-center border border-white/10 text-white hover:bg-amber-400 hover:text-slate-950 transition-all shadow-lg"
                 >
-                  <Edit3 className="h-4 w-4" />
+                  <Edit3 className="h-3 w-3" />
                 </Link>
                 <button
                   onClick={handleDelete}
                   disabled={isDeleting}
-                  className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/10 text-white hover:bg-red-500 transition-all shadow-xl disabled:opacity-50"
+                  className="w-7 h-7 rounded-lg bg-black/50 backdrop-blur-md flex items-center justify-center border border-white/10 text-white hover:bg-red-500 transition-all shadow-lg disabled:opacity-50"
                 >
-                  <Trash2 className="h-4 w-4" />
+                  <Trash2 className="h-3 w-3" />
                 </button>
               </div>
             )}
